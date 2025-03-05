@@ -1,0 +1,34 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             x:Class="PartsManager.Views.ManagePartsPage">
+    <StackLayout Padding="10">
+        <Label Text="Available Parts" FontSize="Medium"/>
+        <ListView ItemsSource="{Binding AvailableParts}" SelectionMode="Single">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Label Text="{Binding Name}" VerticalOptions="Center"/>
+                            <Button Text="Add" Clicked="OnAddPartClicked"
+                                    CommandParameter="{Binding Id}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Label Text="Linked Parts" FontSize="Medium" Margin="0,10,0,0"/>
+        <ListView ItemsSource="{Binding LinkedParts}" SelectionMode="Single">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Label Text="{Binding Name}" VerticalOptions="Center"/>
+                            <Button Text="Remove" Clicked="OnRemovePartClicked"
+                                    CommandParameter="{Binding Id}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

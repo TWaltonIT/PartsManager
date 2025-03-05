@@ -1,0 +1,36 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PartsManager.Views.TVModelsPage"
+             Title="TV Models">
+
+    <VerticalStackLayout Padding="10" Spacing="10">
+        <Label Text="TV Models" FontSize="24" HorizontalOptions="Center" />
+
+        <CollectionView ItemsSource="{Binding TVModels}" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" Padding="10" Spacing="10">
+                        <Label Text="{Binding Name}" FontSize="18" VerticalOptions="Center" />
+                        <Button Text="Delete" Clicked="OnDeleteClicked" CommandParameter="{Binding Id}" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="Add TV Model" Clicked="OnAddTVModelClicked" />
+
+        <ListView ItemsSource="{Binding TVModels}" SelectionMode="Single">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Label Text="{Binding Name}" VerticalOptions="Center"/>
+                            <Button Text="Manage Parts" Clicked="OnManagePartsClicked"
+                            CommandParameter="{Binding Id}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>

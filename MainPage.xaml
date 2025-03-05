@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PartsManager.MainPage"
+             Title="Parts Manager">
+
+    <VerticalStackLayout Padding="10" Spacing="10">
+        <Label Text="Parts Manager" FontSize="24" HorizontalOptions="Center" />
+
+        <Button Text="Add TV Model" Clicked="OnAddTVModelClicked" />
+        <Button Text="View TV Models" Clicked="OnViewTVModelsClicked" />
+        <Button Text="Add Part" Clicked="OnAddPartClicked" />
+        <Button Text="View Parts" Clicked="OnViewPartsClicked" />
+    </VerticalStackLayout>
+</ContentPage>
