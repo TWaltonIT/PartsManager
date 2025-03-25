@@ -1,6 +1,7 @@
 ﻿using Microsoft.Maui.Controls;
 using System.Collections.ObjectModel;
 using PartsManager.Data;
+using PartsManager.Views;
 
 namespace PartsManager
 {
@@ -48,11 +49,10 @@ namespace PartsManager
       }
     }
 
-    private async void OnViewPartsClicked(object sender, EventArgs e)
-    {
-      var parts = _database.GetParts();
-      await DisplayAlert("Parts", string.Join("\n", parts), "OK");
+        private async void OnViewPartsClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ViewPartsPage(_database));
+        }
     }
-  }
 }
 

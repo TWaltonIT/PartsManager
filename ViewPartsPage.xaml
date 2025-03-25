@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PartsManager.Views.ViewPartsPage"
+             Title="TV Parts">
+    <StackLayout Padding="10">
+        <ListView ItemsSource="{Binding Parts}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Padding="10" Margin="5" BorderColor="Gray">
+                            <StackLayout>
+                                <Label Text="{Binding PartNumber}" FontAttributes="Bold"/>
+                                <Label Text="{Binding Name}" />
+                                <Label Text="Quantity: {Binding Quantity}" />
+                                <Label Text="Location: {Binding Location}" />
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

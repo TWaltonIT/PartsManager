@@ -92,14 +92,21 @@ namespace PartsManager.Data
             });
     }
 
-    // Get Parts
-    public List<string> GetParts()
-    {
-      return ExecuteQuery("SELECT Name FROM Part", reader => reader.GetString(0));
-    }
+        // Get Parts
+        public List<Part> GetParts()
+        {
+            return ExecuteQuery("SELECT Id, PartNumber, Name, Quantity, Location FROM Part", reader => new Part
+            {
+                Id = reader.GetInt32(0),
+                PartNumber = reader.GetString(1),
+                Name = reader.GetString(2),
+                Quantity = reader.GetInt32(3),
+                Location = reader.GetString(4)
+            });
+        }
 
-    // Helper Methods
-    private void ExecuteNonQuery(string query, Dictionary<string, object> parameters = null)
+        // Helper Methods
+        private void ExecuteNonQuery(string query, Dictionary<string, object> parameters = null)
     {
       using var connection = new SqliteConnection(_connectionString);
       connection.Open();
